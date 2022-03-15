@@ -5,61 +5,61 @@
 
 
 // raw objects
-typedef int8_t ByteTag;
-typedef int16_t ShortTag;
-typedef int32_t IntTag;
-typedef int64_t LongTag;
-typedef float FloatTag;
-typedef double DoubleTag;
-typedef std::vector<ByteTag> ByteArrayTag;
-typedef std::string StringTag;
-class ListTag;  // forward declaration
-class CompoundTag;  // forward declaration
-typedef std::vector<IntTag> IntArrayTag;
-typedef std::vector<LongTag> LongArrayTag;
+typedef int8_t RawByteTag;
+typedef int16_t RawShortTag;
+typedef int32_t RawIntTag;
+typedef int64_t RawLongTag;
+typedef float RawFloatTag;
+typedef double RawDoubleTag;
+typedef std::vector<RawByteTag> RawByteArrayTag;
+typedef std::string RawStringTag;
+class RawListTag;  // forward declaration
+class RawCompoundTag;  // forward declaration
+typedef std::vector<RawIntTag> RawIntArrayTag;
+typedef std::vector<RawLongTag> RawLongArrayTag;
 
 // shared pointers to raw objects
-typedef std::shared_ptr<ByteTag> SharedByteTag;
-typedef std::shared_ptr<ShortTag> SharedShortTag;
-typedef std::shared_ptr<IntTag> SharedIntTag;
-typedef std::shared_ptr<LongTag> SharedLongTag;
-typedef std::shared_ptr<FloatTag> SharedFloatTag;
-typedef std::shared_ptr<DoubleTag> SharedDoubleTag;
-typedef std::shared_ptr<ByteArrayTag> SharedByteArrayTag;
-typedef std::shared_ptr<StringTag> SharedStringTag;
-typedef std::shared_ptr<ListTag> SharedListTag;
-typedef std::shared_ptr<CompoundTag> SharedCompoundTag;
-typedef std::shared_ptr<IntArrayTag> SharedIntArrayTag;
-typedef std::shared_ptr<LongArrayTag> SharedLongArrayTag;
+typedef std::shared_ptr<RawByteTag> ByteTag;
+typedef std::shared_ptr<RawShortTag> ShortTag;
+typedef std::shared_ptr<RawIntTag> IntTag;
+typedef std::shared_ptr<RawLongTag> LongTag;
+typedef std::shared_ptr<RawFloatTag> FloatTag;
+typedef std::shared_ptr<RawDoubleTag> DoubleTag;
+typedef std::shared_ptr<RawByteArrayTag> ByteArrayTag;
+typedef std::shared_ptr<RawStringTag> StringTag;
+typedef std::shared_ptr<RawListTag> ListTag;
+typedef std::shared_ptr<RawCompoundTag> CompoundTag;
+typedef std::shared_ptr<RawIntArrayTag> IntArrayTag;
+typedef std::shared_ptr<RawLongArrayTag> LongArrayTag;
 
 // lists containing shared pointers to raw objects
-typedef std::list<SharedByteTag> SharedByteTagList;
-typedef std::list<SharedShortTag> SharedShortTagList;
-typedef std::list<SharedIntTag> SharedIntTagList;
-typedef std::list<SharedLongTag> SharedLongTagList;
-typedef std::list<SharedFloatTag> SharedFloatTagList;
-typedef std::list<SharedDoubleTag> SharedDoubleTagList;
-typedef std::list<SharedByteArrayTag> SharedByteArrayTagList;
-typedef std::list<SharedStringTag> SharedStringTagList;
-typedef std::list<SharedListTag> SharedListTagList;
-typedef std::list<SharedCompoundTag> SharedCompoundTagList;
-typedef std::list<SharedIntArrayTag> SharedIntArrayTagList;
-typedef std::list<SharedLongArrayTag> SharedLongArrayTagList;
+typedef std::list<ByteTag> ByteTagList;
+typedef std::list<ShortTag> ShortTagList;
+typedef std::list<IntTag> IntTagList;
+typedef std::list<LongTag> LongTagList;
+typedef std::list<FloatTag> FloatTagList;
+typedef std::list<DoubleTag> DoubleTagList;
+typedef std::list<ByteArrayTag> ByteArrayTagList;
+typedef std::list<StringTag> StringTagList;
+typedef std::list<ListTag> ListTagList;
+typedef std::list<CompoundTag> CompoundTagList;
+typedef std::list<IntArrayTag> IntArrayTagList;
+typedef std::list<LongArrayTag> LongArrayTagList;
 
-class ListTag : public std::variant<
+class RawListTag : public std::variant<
     std::monostate,
-    SharedByteTagList,
-    SharedShortTagList,
-    SharedIntTagList,
-    SharedLongTagList,
-    SharedFloatTagList,
-    SharedDoubleTagList,
-    SharedByteArrayTagList,
-    SharedStringTagList,
-    SharedListTagList,
-    SharedCompoundTagList,
-    SharedIntArrayTagList,
-    SharedLongArrayTagList
+    ByteTagList,
+    ShortTagList,
+    IntTagList,
+    LongTagList,
+    FloatTagList,
+    DoubleTagList,
+    ByteArrayTagList,
+    StringTagList,
+    ListTagList,
+    CompoundTagList,
+    IntArrayTagList,
+    LongArrayTagList
 >
 {
     using variant::variant;
@@ -67,24 +67,24 @@ class ListTag : public std::variant<
 
 class CompoundTagValue : public std::variant<
     std::monostate,
-    SharedByteTag,
-    SharedShortTag,
-    SharedIntTag,
-    SharedLongTag,
-    SharedFloatTag,
-    SharedDoubleTag,
-    SharedByteArrayTag,
-    SharedStringTag,
-    SharedListTag,
-    SharedCompoundTag,
-    SharedIntArrayTag,
-    SharedLongArrayTag
+    ByteTag,
+    ShortTag,
+    IntTag,
+    LongTag,
+    FloatTag,
+    DoubleTag,
+    ByteArrayTag,
+    StringTag,
+    ListTag,
+    CompoundTag,
+    IntArrayTag,
+    LongArrayTag
 >
 {
     using variant::variant;
 };
 
-class CompoundTag : public std::map<std::string, CompoundTagValue>
+class RawCompoundTag : public std::map<std::string, CompoundTagValue>
 {
     using map::map;
 };

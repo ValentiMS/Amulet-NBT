@@ -4,10 +4,10 @@
 # distutils: extra_link_args = -std=c++17 /std:c++17
 
 from libc.stdint cimport (
-int8_t,
-int16_t,
-int32_t,
-int64_t,
+    int8_t,
+    int16_t,
+    int32_t,
+    int64_t,
 )
 
 from libcpp.memory cimport shared_ptr
@@ -18,54 +18,53 @@ from libcpp.list cimport list as cpp_list
 from libcpp.variant cimport variant
 
 cdef extern from "nbt.h" nogil:
-
     # raw objects
-    ctypedef int8_t ByteTag
-    ctypedef int16_t ShortTag
-    ctypedef int32_t IntTag
-    ctypedef int64_t LongTag
-    ctypedef float FloatTag
-    ctypedef double DoubleTag
-    ctypedef vector[ByteTag] ByteArrayTag
-    ctypedef string StringTag
-    cdef cppclass ListTag
-    cdef cppclass CompoundTag
-    ctypedef vector[IntTag] IntArrayTag
-    ctypedef vector[LongTag] LongArrayTag
+    ctypedef int8_t RawByteTag
+    ctypedef int16_t RawShortTag
+    ctypedef int32_t RawIntTag
+    ctypedef int64_t RawLongTag
+    ctypedef float RawFloatTag
+    ctypedef double RawDoubleTag
+    ctypedef vector[RawByteTag] RawByteArrayTag
+    ctypedef string RawStringTag
+    cdef cppclass RawListTag
+    cdef cppclass RawCompoundTag
+    ctypedef vector[RawIntTag] RawIntArrayTag
+    ctypedef vector[RawLongTag] RawLongArrayTag
 
     # shared pointers to raw objects
-    ctypedef shared_ptr[ByteTag] SharedByteTag
-    ctypedef shared_ptr[ShortTag] SharedShortTag
-    ctypedef shared_ptr[IntTag] SharedIntTag
-    ctypedef shared_ptr[LongTag] SharedLongTag
-    ctypedef shared_ptr[FloatTag] SharedFloatTag
-    ctypedef shared_ptr[DoubleTag] SharedDoubleTag
-    ctypedef shared_ptr[ByteArrayTag] SharedByteArrayTag
-    ctypedef shared_ptr[StringTag] SharedStringTag
-    ctypedef shared_ptr[ListTag] SharedListTag
-    ctypedef shared_ptr[CompoundTag] SharedCompoundTag
-    ctypedef shared_ptr[IntArrayTag] SharedIntArrayTag
-    ctypedef shared_ptr[LongArrayTag] SharedLongArrayTag
+    ctypedef shared_ptr[RawByteTag] ByteTag
+    ctypedef shared_ptr[RawShortTag] ShortTag
+    ctypedef shared_ptr[RawIntTag] IntTag
+    ctypedef shared_ptr[RawLongTag] LongTag
+    ctypedef shared_ptr[RawFloatTag] FloatTag
+    ctypedef shared_ptr[RawDoubleTag] DoubleTag
+    ctypedef shared_ptr[RawByteArrayTag] ByteArrayTag
+    ctypedef shared_ptr[RawStringTag] StringTag
+    ctypedef shared_ptr[RawListTag] ListTag
+    ctypedef shared_ptr[RawCompoundTag] CompoundTag
+    ctypedef shared_ptr[RawIntArrayTag] IntArrayTag
+    ctypedef shared_ptr[RawLongArrayTag] LongArrayTag
 
     # lists containing shared pointers to raw objects
-    ctypedef cpp_list[SharedByteTag] ByteTagList
-    ctypedef cpp_list[SharedShortTag] ShortTagList
-    ctypedef cpp_list[SharedIntTag] IntTagList
-    ctypedef cpp_list[SharedLongTag] LongTagList
-    ctypedef cpp_list[SharedFloatTag] FloatTagList
-    ctypedef cpp_list[SharedDoubleTag] DoubleTagList
-    ctypedef cpp_list[SharedByteArrayTag] ByteArrayTagList
-    ctypedef cpp_list[SharedStringTag] StringTagList
-    ctypedef cpp_list[SharedListTag] ListTagList
-    ctypedef cpp_list[SharedCompoundTag] CompoundTagList
-    ctypedef cpp_list[SharedIntArrayTag] IntArrayTagList
-    ctypedef cpp_list[SharedLongArrayTag] LongArrayTagList
+    ctypedef cpp_list[ByteTag] ByteTagList
+    ctypedef cpp_list[ShortTag] ShortTagList
+    ctypedef cpp_list[IntTag] IntTagList
+    ctypedef cpp_list[LongTag] LongTagList
+    ctypedef cpp_list[FloatTag] FloatTagList
+    ctypedef cpp_list[DoubleTag] DoubleTagList
+    ctypedef cpp_list[ByteArrayTag] ByteArrayTagList
+    ctypedef cpp_list[StringTag] StringTagList
+    ctypedef cpp_list[ListTag] ListTagList
+    ctypedef cpp_list[CompoundTag] CompoundTagList
+    ctypedef cpp_list[IntArrayTag] IntArrayTagList
+    ctypedef cpp_list[LongArrayTag] LongArrayTagList
 
-    cdef cppclass ListTag(variant):
+    cdef cppclass RawListTag(variant):
         pass
 
     cdef cppclass CompoundTagValue(variant):
         pass
 
-    cdef cppclass CompoundTag(map[string, CompoundTagValue]):
+    cdef cppclass RawCompoundTag(map[string, CompoundTagValue]):
         pass

@@ -112,6 +112,7 @@ venv*
 
 # Cython Files
 *.c
+*.cpp
 *.html
 
 temp

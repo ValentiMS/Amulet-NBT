@@ -119,32 +119,32 @@ cdef extern from "nbt.h" nogil:
     ctypedef Array[RawLongTag] RawLongArrayTag
 
     # shared pointers to raw objects
-    ctypedef shared_ptr[RawByteTag] ByteTag
-    ctypedef shared_ptr[RawShortTag] ShortTag
-    ctypedef shared_ptr[RawIntTag] IntTag
-    ctypedef shared_ptr[RawLongTag] LongTag
-    ctypedef shared_ptr[RawFloatTag] FloatTag
-    ctypedef shared_ptr[RawDoubleTag] DoubleTag
-    ctypedef shared_ptr[RawByteArrayTag] ByteArrayTag
-    ctypedef shared_ptr[RawStringTag] StringTag
-    ctypedef shared_ptr[RawListTag] ListTag
-    ctypedef shared_ptr[RawCompoundTag] CompoundTag
-    ctypedef shared_ptr[RawIntArrayTag] IntArrayTag
-    ctypedef shared_ptr[RawLongArrayTag] LongArrayTag
+    ctypedef shared_ptr[RawByteTag] CByteTag
+    ctypedef shared_ptr[RawShortTag] CShortTag
+    ctypedef shared_ptr[RawIntTag] CIntTag
+    ctypedef shared_ptr[RawLongTag] CLongTag
+    ctypedef shared_ptr[RawFloatTag] CFloatTag
+    ctypedef shared_ptr[RawDoubleTag] CDoubleTag
+    ctypedef shared_ptr[RawByteArrayTag] CByteArrayTag
+    ctypedef shared_ptr[RawStringTag] CStringTag
+    ctypedef shared_ptr[RawListTag] CListTag
+    ctypedef shared_ptr[RawCompoundTag] CCompoundTag
+    ctypedef shared_ptr[RawIntArrayTag] CIntArrayTag
+    ctypedef shared_ptr[RawLongArrayTag] CLongArrayTag
 
     # lists containing shared pointers to raw objects
-    ctypedef vector[ByteTag] ByteTagList
-    ctypedef vector[ShortTag] ShortTagList
-    ctypedef vector[IntTag] IntTagList
-    ctypedef vector[LongTag] LongTagList
-    ctypedef vector[FloatTag] FloatTagList
-    ctypedef vector[DoubleTag] DoubleTagList
-    ctypedef vector[ByteArrayTag] ByteArrayTagList
-    ctypedef vector[StringTag] StringTagList
-    ctypedef vector[ListTag] ListTagList
-    ctypedef vector[CompoundTag] CompoundTagList
-    ctypedef vector[IntArrayTag] IntArrayTagList
-    ctypedef vector[LongArrayTag] LongArrayTagList
+    ctypedef vector[CByteTag] ByteTagList
+    ctypedef vector[CShortTag] ShortTagList
+    ctypedef vector[CIntTag] IntTagList
+    ctypedef vector[CLongTag] LongTagList
+    ctypedef vector[CFloatTag] FloatTagList
+    ctypedef vector[CDoubleTag] DoubleTagList
+    ctypedef vector[CByteArrayTag] ByteArrayTagList
+    ctypedef vector[CStringTag] StringTagList
+    ctypedef vector[CListTag] ListTagList
+    ctypedef vector[CCompoundTag] CompoundTagList
+    ctypedef vector[CIntArrayTag] IntArrayTagList
+    ctypedef vector[CLongArrayTag] LongArrayTagList
 
     cdef cppclass RawListTag(variant):
         pass

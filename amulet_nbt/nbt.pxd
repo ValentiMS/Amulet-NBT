@@ -11,7 +11,7 @@ from libc.stdint cimport (
 )
 
 from libcpp.memory cimport shared_ptr
-from libcpp.map cimport map
+from libcpp.unordered_map cimport unordered_map
 from libcpp.string cimport string
 from libcpp.vector cimport vector
 from libcpp.variant cimport variant
@@ -152,5 +152,5 @@ cdef extern from "nbt.h" nogil:
     cdef cppclass CompoundTagValue(variant):
         pass
 
-    cdef cppclass RawCompoundTag(map[string, CompoundTagValue]):
+    cdef cppclass RawCompoundTag(unordered_map[string, CompoundTagValue]):
         pass

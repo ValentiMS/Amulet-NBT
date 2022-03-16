@@ -1,4 +1,4 @@
-#include <map>
+#include <unordered_map>
 #include <string>
 #include <memory>
 #include <variant>
@@ -114,7 +114,7 @@ class CompoundTagValue : public std::variant<
     using variant::variant;
 };
 
-class RawCompoundTag : public std::map<std::string, CompoundTagValue>
+class RawCompoundTag : public std::unordered_map<std::string, CompoundTagValue>
 {
-    using map::map;
+    using unordered_map::unordered_map;
 };

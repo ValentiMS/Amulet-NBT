@@ -63,18 +63,18 @@ typedef std::shared_ptr<RawIntArrayTag> IntArrayTag;
 typedef std::shared_ptr<RawLongArrayTag> LongArrayTag;
 
 // lists containing shared pointers to raw objects
-typedef std::list<ByteTag> ByteTagList;
-typedef std::list<ShortTag> ShortTagList;
-typedef std::list<IntTag> IntTagList;
-typedef std::list<LongTag> LongTagList;
-typedef std::list<FloatTag> FloatTagList;
-typedef std::list<DoubleTag> DoubleTagList;
-typedef std::list<ByteArrayTag> ByteArrayTagList;
-typedef std::list<StringTag> StringTagList;
-typedef std::list<ListTag> ListTagList;
-typedef std::list<CompoundTag> CompoundTagList;
-typedef std::list<IntArrayTag> IntArrayTagList;
-typedef std::list<LongArrayTag> LongArrayTagList;
+typedef std::vector<ByteTag> ByteTagList;
+typedef std::vector<ShortTag> ShortTagList;
+typedef std::vector<IntTag> IntTagList;
+typedef std::vector<LongTag> LongTagList;
+typedef std::vector<FloatTag> FloatTagList;
+typedef std::vector<DoubleTag> DoubleTagList;
+typedef std::vector<ByteArrayTag> ByteArrayTagList;
+typedef std::vector<StringTag> StringTagList;
+typedef std::vector<ListTag> ListTagList;
+typedef std::vector<CompoundTag> CompoundTagList;
+typedef std::vector<IntArrayTag> IntArrayTagList;
+typedef std::vector<LongArrayTag> LongArrayTagList;
 
 class RawListTag : public std::variant<
     std::monostate,

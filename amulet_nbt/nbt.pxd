@@ -13,7 +13,7 @@ from libc.stdint cimport (
 from libcpp.memory cimport shared_ptr
 from libcpp.map cimport map
 from libcpp.string cimport string
-from libcpp.list cimport list as cpp_list
+from libcpp.vector cimport vector
 from libcpp.variant cimport variant
 
 cdef extern from "nbt.h" nogil:
@@ -133,18 +133,18 @@ cdef extern from "nbt.h" nogil:
     ctypedef shared_ptr[RawLongArrayTag] LongArrayTag
 
     # lists containing shared pointers to raw objects
-    ctypedef cpp_list[ByteTag] ByteTagList
-    ctypedef cpp_list[ShortTag] ShortTagList
-    ctypedef cpp_list[IntTag] IntTagList
-    ctypedef cpp_list[LongTag] LongTagList
-    ctypedef cpp_list[FloatTag] FloatTagList
-    ctypedef cpp_list[DoubleTag] DoubleTagList
-    ctypedef cpp_list[ByteArrayTag] ByteArrayTagList
-    ctypedef cpp_list[StringTag] StringTagList
-    ctypedef cpp_list[ListTag] ListTagList
-    ctypedef cpp_list[CompoundTag] CompoundTagList
-    ctypedef cpp_list[IntArrayTag] IntArrayTagList
-    ctypedef cpp_list[LongArrayTag] LongArrayTagList
+    ctypedef vector[ByteTag] ByteTagList
+    ctypedef vector[ShortTag] ShortTagList
+    ctypedef vector[IntTag] IntTagList
+    ctypedef vector[LongTag] LongTagList
+    ctypedef vector[FloatTag] FloatTagList
+    ctypedef vector[DoubleTag] DoubleTagList
+    ctypedef vector[ByteArrayTag] ByteArrayTagList
+    ctypedef vector[StringTag] StringTagList
+    ctypedef vector[ListTag] ListTagList
+    ctypedef vector[CompoundTag] CompoundTagList
+    ctypedef vector[IntArrayTag] IntArrayTagList
+    ctypedef vector[LongArrayTag] LongArrayTagList
 
     cdef cppclass RawListTag(variant):
         pass
